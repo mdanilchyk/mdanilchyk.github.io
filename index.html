@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Михаил Данильчик</title>
+<meta name="description" content="Co-founder Lansoft.dev · Lansoft.by · ShieldLabs">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+  :root {
+    --bg: #F7F8F6;
+    --bg2: #FFFFFF;
+    --text: #0C0F14;
+    --text-muted: #5A615A;
+    --text-faint: #90968D;
+    --hairline: #DFE3DB;
+    --spark: #C8FF4D;
+    --spark-ink: #0C0F14;
+    --dev-navy: #0A1730;
+    --shield-green: #0E6B45;
+    --shadow: 0 2px 14px rgba(12,15,20,0.07);
+    --shadow-hover: 0 10px 30px rgba(12,15,20,0.12);
+    --radius-card: 20px;
+    --radius-chip: 999px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0C0F14;
+      --bg2: #161B24;
+      --text: #ECEEE9;
+      --text-muted: #A8AEA4;
+      --text-faint: #5A615A;
+      --hairline: #262C25;
+      --shadow: 0 2px 14px rgba(0,0,0,0.4);
+      --shadow-hover: 0 12px 32px rgba(0,0,0,0.55);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #0C0F14;
+    --bg2: #161B24;
+    --text: #ECEEE9;
+    --text-muted: #A8AEA4;
+    --text-faint: #5A615A;
+    --hairline: #262C25;
+    --shadow: 0 2px 14px rgba(0,0,0,0.4);
+    --shadow-hover: 0 12px 32px rgba(0,0,0,0.55);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { margin: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+    padding: 56px 20px 64px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, #0075C9 0%, #2ED9C3 55%, #C8FF4D 100%);
+    box-shadow: var(--shadow);
+  }
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .identity { text-align: center; display: flex; flex-direction: column; gap: 8px; }
+
+  .identity h1 {
+    margin: 0;
+    font-family: "Golos Text", sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  .handle {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 13px;
+    color: var(--text-faint);
+    letter-spacing: 0.02em;
+  }
+
+  .tagline {
+    margin: 4px 0 0;
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.55;
+    text-wrap: balance;
+    max-width: 340px;
+  }
+
+  .links {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 16px 18px;
+    border-radius: var(--radius-card);
+    background: var(--bg2);
+    border: 1px solid var(--hairline);
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    color: var(--text);
+    transition: transform 220ms cubic-bezier(0.25,1,0.5,1), box-shadow 220ms cubic-bezier(0.25,1,0.5,1), border-color 220ms;
+  }
+  .card:hover, .card:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+  }
+  .card:focus-visible { outline: 2px solid var(--spark); outline-offset: 3px; }
+
+  .mark {
+    flex: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mark svg { width: 22px; height: 22px; }
+
+  .mark.dev { background: var(--dev-navy); padding: 9px; }
+  .mark.dev img { width: 100%; height: 100%; object-fit: contain; }
+  .mark.by { background: var(--spark); }
+  .mark.shield { background: var(--shield-green); }
+
+  .card-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1; }
+  .card-title { font-family: "Golos Text", sans-serif; font-weight: 600; font-size: 16.5px; }
+  .card-sub { font-size: 13.5px; color: var(--text-muted); line-height: 1.4; }
+
+  .eyebrow {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    flex: none;
+    white-space: nowrap;
+  }
+
+  footer {
+    text-align: center;
+    color: var(--text-faint);
+    font-size: 12.5px;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    letter-spacing: 0.02em;
+    margin-top: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="avatar"><img src="mike-avatar.jpg" alt="Михаил Данильчик" /></div>
+
+  <div class="identity">
+    <h1>Михаил Данильчик</h1>
+    <div class="handle">@mike_danilchyk</div>
+    <p class="tagline">18 лет в разработке. Строю аутстафф-команду, ИИ-консалтинг и антифрод-продукт — три бизнеса на стыке инженерии и ИИ.</p>
+  </div>
+
+  <div class="links">
+    <a class="card" href="https://lansoft.dev" target="_blank" rel="noopener">
+      <div class="mark dev">
+        <img src="logo-mark.png" alt="" />
+      </div>
+      <div class="card-body">
+        <div class="card-title">Lansoft.dev</div>
+        <div class="card-sub">IT-аутстафф и разработка — Co-founder</div>
+      </div>
+      <span class="eyebrow">Since 2019</span>
+    </a>
+
+    <a class="card" href="https://lansoft.by" target="_blank" rel="noopener">
+      <div class="mark by">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0C0F14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Lansoft.by</div>
+        <div class="card-sub">ИИ-трансформация бизнеса — аудит и внедрение</div>
+      </div>
+      <span class="eyebrow">AI · 2026</span>
+    </a>
+
+    <a class="card" href="https://shieldlabs.ai" target="_blank" rel="noopener">
+      <div class="mark shield">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#F7F8F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2 4 5v6c0 5 3.4 8.7 8 9 4.6-.3 8-4 8-9V5l-8-3Z"></path>
+          <polyline points="9 12 11 14 15.5 9.5"></polyline>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-title">ShieldLabs</div>
+        <div class="card-sub">Antifraud для fintech и беттинга — трафик, мультиаккаунты, боты</div>
+      </div>
+      <span class="eyebrow">Since 2025</span>
+    </a>
+  </div>
+
+  <footer>Инженерное доверие. Открытые цены. Личный аудит.</footer>
+</div>
+
+</body>
+</html>
